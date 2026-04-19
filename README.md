@@ -19,9 +19,9 @@ A government-style citizen platform concept for **Indore Municipal Corporation (
 
 ## Project Structure
 
-- `/home/runner/work/MyWardIMC/MyWardIMC/index.html` – main page layout
-- `/home/runner/work/MyWardIMC/MyWardIMC/styles.css` – complete styling
-- `/home/runner/work/MyWardIMC/MyWardIMC/script.js` – dynamic rendering and form handling
+- `index.html` – main page layout
+- `styles.css` – complete styling
+- `script.js` – dynamic rendering and form handling
 
 ## Run Locally
 
@@ -30,7 +30,7 @@ Since this is a static web project, you can open `index.html` directly in a brow
 For best results, run with a local static server:
 
 ```bash
-cd /home/runner/work/MyWardIMC/MyWardIMC
+cd MyWardIMC
 python3 -m http.server 8080
 ```
 
