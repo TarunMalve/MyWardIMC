@@ -30,6 +30,7 @@
           <a href="#complaints">My Complaints</a>
           <a href="#suggestions">My Suggestions</a>
           <a href="#myward">My Ward</a>
+          <a href="#services">Ward Services</a>
           <a href="#map">Ward Map</a>
         </nav>
       </div>
@@ -39,7 +40,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <span class="badge">स्वच्छ इंदौर, स्मार्ट वार्ड</span>
+            <span class="badge">MVP Pilot · स्वच्छ इंदौर, स्मार्ट वार्ड</span>
             <h1>One Platform for Ward Information, Complaints & Improvement Ideas</h1>
             <p>
               A clean, transparent and government-ready digital interface for citizens and officers.
@@ -52,24 +53,7 @@
           </div>
           <div class="hero-card">
             <h3>Today’s Ward Snapshot</h3>
-            <div class="metrics">
-              <article>
-                <p>Resolved Complaints</p>
-                <h4>82%</h4>
-              </article>
-              <article>
-                <p>Door-to-Door Collection</p>
-                <h4>94%</h4>
-              </article>
-              <article>
-                <p>Public Toilets Rated Clean</p>
-                <h4>76%</h4>
-              </article>
-              <article>
-                <p>Segregating Households</p>
-                <h4>68%</h4>
-              </article>
-            </div>
+            <div class="metrics" id="heroMetrics"></div>
           </div>
         </div>
       </section>
@@ -85,11 +69,22 @@
           <div class="panel form-panel">
             <h3>Quick Issue Submission</h3>
             <form id="complaintForm">
-              <div class="form-row">
-                <label for="issueType">Issue Type</label>
-                <select id="issueType" required>
-                  <option value="">Select issue</option>
-                </select>
+              <div class="grid grid-2 compact-grid">
+                <div class="form-row">
+                  <label for="issueType">Issue Type</label>
+                  <select id="issueType" required>
+                    <option value="">Select issue</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="priority">Priority</label>
+                  <select id="priority" required>
+                    <option value="">Select priority</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                  </select>
+                </div>
               </div>
               <div class="form-row">
                 <label for="location">Location / Area</label>
@@ -103,6 +98,14 @@
               <p id="formMessage" class="form-message" aria-live="polite"></p>
             </form>
           </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Recent Complaint Records</h3>
+              <button class="btn btn-secondary btn-small" type="button" id="clearComplaints">Clear Records</button>
+            </div>
+            <div id="complaintRecords" class="record-list"></div>
+          </div>
         </div>
       </section>
 
@@ -113,6 +116,27 @@
             <p>Citizen ideas to push our ward towards top cleanliness and livability ranks.</p>
           </div>
           <div class="grid grid-2" id="suggestionGrid"></div>
+
+          <div class="panel form-panel">
+            <h3>Share a Suggestion</h3>
+            <form id="suggestionForm">
+              <div class="form-row">
+                <label for="suggestionTitle">Suggestion Title</label>
+                <input id="suggestionTitle" type="text" placeholder="e.g., Weekly lane cleanliness scoreboard" required />
+              </div>
+              <div class="form-row">
+                <label for="suggestionDetails">Suggestion Details</label>
+                <textarea id="suggestionDetails" rows="3" placeholder="Explain your idea and expected impact" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Submit Suggestion</button>
+              <p id="suggestionMessage" class="form-message" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3>Recent Citizen Suggestions</h3>
+            <div id="suggestionRecords" class="record-list"></div>
+          </div>
         </div>
       </section>
 
@@ -144,7 +168,21 @@
         </div>
       </section>
 
-      <section id="map" class="section alt">
+      <section id="services" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ward Services & Escalation Contacts</h2>
+            <p>Ready-to-use ward service directory for MVP operations.</p>
+          </div>
+          <div class="grid grid-3" id="serviceGrid"></div>
+          <div class="panel">
+            <h3>Action Timeline for Complaint Lifecycle</h3>
+            <ol class="timeline" id="actionTimeline"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="section">
         <div class="container">
           <div class="section-head">
             <h2>Ward Map View</h2>
@@ -163,7 +201,7 @@
 
     <footer class="footer">
       <div class="container footer-wrap">
-        <p>© 2026 MyWardIMC · Built for Indore Municipal Corporation civic improvement initiatives.</p>
+        <p>© 2026 MyWardIMC MVP Prototype · Built for Indore Municipal Corporation civic improvement initiatives.</p>
         <p>Designed for transparent ward governance and active citizen participation.</p>
       </div>
     </footer>
