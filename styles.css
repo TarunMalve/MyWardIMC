@@ -26,7 +26,7 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 10% -5%, rgba(93, 77, 255, 0.22), transparent 38%),
+    radial-gradient(circle at 10% 0%, rgba(93, 77, 255, 0.22), transparent 38%),
     radial-gradient(circle at 92% 8%, rgba(255, 106, 136, 0.2), transparent 40%),
     radial-gradient(circle at 50% 40%, rgba(255, 184, 107, 0.15), transparent 55%),
     var(--bg);
@@ -342,9 +342,10 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid var(--primary-deep);
+  outline: 3px solid #1d2340;
   outline-offset: 1px;
   border-color: rgba(93, 77, 255, 0.6);
+  box-shadow: 0 0 0 1px #fff;
 }
 
 .form-message {
