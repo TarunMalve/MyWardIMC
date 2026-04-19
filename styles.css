@@ -336,7 +336,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none;
+  outline: 2px solid rgba(93, 77, 255, 0.75);
+  outline-offset: 1px;
   border-color: rgba(93, 77, 255, 0.6);
   box-shadow: 0 0 0 3px rgba(93, 77, 255, 0.3);
 }
