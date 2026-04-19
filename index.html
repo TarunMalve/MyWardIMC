@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyWardIMC | Smart Ward Information & Citizen Connect</title>
+    <meta
+      name="description"
+      content="MyWardIMC is a citizen-first ward platform for Indore Municipal Corporation to track complaints, suggestions, sanitation, and ward-level public infrastructure."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <div class="brand">
+          <div class="brand-mark">IMC</div>
+          <div>
+            <p class="brand-title">MyWardIMC</p>
+            <p class="brand-subtitle">Indore Municipal Corporation Citizen Platform</p>
+          </div>
+        </div>
+        <nav>
+          <a href="#complaints">My Complaints</a>
+          <a href="#suggestions">My Suggestions</a>
+          <a href="#myward">My Ward</a>
+          <a href="#services">Ward Services</a>
+          <a href="#map">Ward Map</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="badge">MVP Pilot · स्वच्छ इंदौर, स्मार्ट वार्ड</span>
+            <h1>One Platform for Ward Information, Complaints & Improvement Ideas</h1>
+            <p>
+              A clean, transparent and government-ready digital interface for citizens and officers.
+              Track ward status, report issues, share suggestions, and compare cleanliness indicators.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#complaints">Raise Complaint</a>
+              <a class="btn btn-secondary" href="#myward">View Ward Dashboard</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h3>Today’s Ward Snapshot</h3>
+            <div class="metrics" id="heroMetrics"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="complaints" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>My Complaints</h2>
+            <p>Report sanitation and civic issues quickly for faster municipal action.</p>
+          </div>
+          <div class="grid grid-3" id="complaintGrid"></div>
+
+          <div class="panel form-panel">
+            <h3>Quick Issue Submission</h3>
+            <form id="complaintForm">
+              <div class="grid grid-2 compact-grid">
+                <div class="form-row">
+                  <label for="issueType">Issue Type</label>
+                  <select id="issueType" required>
+                    <option value="">Select issue</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <label for="priority">Priority</label>
+                  <select id="priority" required>
+                    <option value="">Select priority</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <label for="location">Location / Area</label>
+                <input id="location" type="text" placeholder="e.g., Scheme No. 78, Back Lane 2" required />
+              </div>
+              <div class="form-row">
+                <label for="details">Details</label>
+                <textarea id="details" rows="3" placeholder="Briefly describe the issue" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Submit Complaint</button>
+              <p id="formMessage" class="form-message" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Recent Complaint Records</h3>
+              <button class="btn btn-secondary btn-small" type="button" id="clearComplaints">Clear Records</button>
+            </div>
+            <div id="complaintRecords" class="record-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="suggestions" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>My Suggestions</h2>
+            <p>Citizen ideas to push our ward towards top cleanliness and livability ranks.</p>
+          </div>
+          <div class="grid grid-2" id="suggestionGrid"></div>
+
+          <div class="panel form-panel">
+            <h3>Share a Suggestion</h3>
+            <form id="suggestionForm">
+              <div class="form-row">
+                <label for="suggestionTitle">Suggestion Title</label>
+                <input id="suggestionTitle" type="text" placeholder="e.g., Weekly lane cleanliness scoreboard" required />
+              </div>
+              <div class="form-row">
+                <label for="suggestionDetails">Suggestion Details</label>
+                <textarea id="suggestionDetails" rows="3" placeholder="Explain your idea and expected impact" required></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">Submit Suggestion</button>
+              <p id="suggestionMessage" class="form-message" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3>Recent Citizen Suggestions</h3>
+            <div id="suggestionRecords" class="record-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="myward" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>My Ward Dashboard</h2>
+            <p>Essential ward infrastructure and cleanliness indicators in one view.</p>
+          </div>
+
+          <div class="grid grid-4" id="wardStats"></div>
+
+          <div class="panel">
+            <h3>Ward Comparison (Sample Benchmark)</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>My Ward</th>
+                    <th>Best Ward</th>
+                    <th>Gap to Close</th>
+                  </tr>
+                </thead>
+                <tbody id="comparisonTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ward Services & Escalation Contacts</h2>
+            <p>Ready-to-use ward service directory for MVP operations.</p>
+          </div>
+          <div class="grid grid-3" id="serviceGrid"></div>
+          <div class="panel">
+            <h3>Action Timeline for Complaint Lifecycle</h3>
+            <ol class="timeline" id="actionTimeline"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Ward Map View</h2>
+            <p>Explore key civic points and ward coverage around Indore city.</p>
+          </div>
+          <div class="panel map-panel">
+            <iframe
+              title="Indore Map"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=75.7590%2C22.6747%2C75.9390%2C22.7947&layer=mapnik"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <p>© 2026 MyWardIMC MVP Prototype · Built for Indore Municipal Corporation civic improvement initiatives.</p>
+        <p>Designed for transparent ward governance and active citizen participation.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
