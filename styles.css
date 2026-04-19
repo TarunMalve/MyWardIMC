@@ -7,6 +7,7 @@
   --bg: #f5f7ff;
   --bg-alt: #eef2ff;
   --card: rgba(255, 255, 255, 0.94);
+  --white: #ffffff;
   --text: #1d2340;
   --muted: #5e6687;
   --border: rgba(117, 132, 214, 0.24);
@@ -342,10 +343,10 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid #1d2340;
+  outline: 3px solid var(--text);
   outline-offset: 1px;
   border-color: rgba(93, 77, 255, 0.6);
-  box-shadow: 0 0 0 1px #fff;
+  box-shadow: 0 0 0 1px var(--white);
 }
 
 .form-message {
