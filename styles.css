@@ -55,9 +55,8 @@ body {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(8px);
+  filter: blur(4px);
   opacity: 0.55;
-  will-change: transform, opacity;
 }
 
 .orb-1 {
