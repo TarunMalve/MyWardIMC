@@ -6,7 +6,8 @@
   --green: #3bcf97;
   --bg: #0f1226;
   --bg-alt: #151a35;
-  --card: linear-gradient(
+  --card: rgba(255, 255, 255, 0.12);
+  --card-gradient: linear-gradient(
     140deg,
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0.09) 55%,
@@ -54,8 +55,9 @@ body {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(10px);
+  filter: blur(8px);
   opacity: 0.55;
+  will-change: transform, opacity;
 }
 
 .orb-1 {
@@ -253,7 +255,7 @@ h1 {
 .panel,
 .stat,
 .card {
-  background: var(--card);
+  background: var(--card-gradient);
   border: 1px solid var(--border);
   border-radius: 16px;
   -webkit-backdrop-filter: blur(14px) saturate(145%);
@@ -423,7 +425,7 @@ textarea:focus {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(228, 234, 255, 0.75);
+  color: rgba(237, 242, 255, 0.92);
 }
 
 select option {
@@ -564,6 +566,22 @@ th {
 
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn:hover,
+  .card:hover,
+  nav a:hover {
+    transform: none;
   }
 }
 
