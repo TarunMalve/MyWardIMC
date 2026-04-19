@@ -31,7 +31,7 @@ Since this is a static web project, you can open `index.html` directly in a brow
 For best results, run with a local static server:
 
 ```bash
-cd /home/runner/work/MyWardIMC/MyWardIMC
+cd MyWardIMC
 python3 -m http.server 8080
 ```
 
