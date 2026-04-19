@@ -343,10 +343,9 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid var(--text);
+  outline: 3px solid var(--primary);
   outline-offset: 1px;
   border-color: rgba(93, 77, 255, 0.6);
-  box-shadow: 0 0 0 1px var(--white);
 }
 
 .form-message {
