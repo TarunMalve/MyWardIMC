@@ -50,7 +50,7 @@ body {
 
 @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .topbar {
-    background: rgba(245, 247, 255, 0.97);
+    background: rgba(245, 247, 255, 0.86);
   }
 }
 
@@ -345,7 +345,7 @@ textarea:focus {
   outline: 3px solid rgba(93, 77, 255, 0.75);
   outline-offset: 1px;
   border-color: rgba(93, 77, 255, 0.6);
-  box-shadow: 0 0 0 3px rgba(93, 77, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(93, 77, 255, 0.3);
 }
 
 .form-message {
